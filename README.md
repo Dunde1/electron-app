@@ -1,46 +1,29 @@
-# Getting Started with Create React App
+# Electron-App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- `electron`과 `react(cra)`를 사용해 제작하였습니다.
+- `typescript`를 기본으로 사용합니다.
 
-## Available Scripts
+## 설정
 
-In the project directory, you can run:
+### electron
 
-### `yarn start`
+- electron 관련 작업은 electron 폴더에서 작업합니다.
+- tsconfig가 별도로 존재하며 electron 폴더에 있는 typescript 파일에 적용됩니다.
+- `tsc` 할 경우 루트 디렉토리에 build-electron 폴더가 생기며 변환된 파일이 들어가게 됩니다.
+- electron-builder 관련 설정은 루트의 `electron-builder.json`에서 설정합니다.
+- public 폴더를 react와 공동으로 사용합니다.
+- 빌드 시 build-electron 폴더가 생성됩니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### react
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- react 관련 작업은 src 폴더에서 작업합니다.
+- tsconfig는 루트에 존재하며 alias 설정을 위해 `tsconfig.json,` `config-overrides.js` 두 개의 파일을 수정해야 합니다.
+- public 폴더를 electron과 공동으로 사용하며 빌드시 별도로 가지고 가게 됩니다.
+- 빌드 시 build-react 폴더가 생성됩니다.
 
-### `yarn test`
+## 스크립트
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- "start": 개발용 상태로 앱을 실행하게 됩니다.
+- "build": 배포용 상태로 앱을 빌드하게 됩니다.
+    - 최종 빌드 시 build 폴더가 생성됩니다.
+    - 해당 build 폴더에는 build-electron, build-react, public, node_modules가 포함됩니다.
