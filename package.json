@@ -16,7 +16,7 @@
     "react-eject": "react-scripts eject",
     "electron-start": "electron .",
     "electron-start:dev": "wait-on --reverse --timeout 3000 http://localhost:3000 && yarn electron-start",
-    "electron-tsc": "tsc -p electron/tsconfig.electron.json"
+    "electron-tsc": "tsc -p electron/tsconfig.json && tsc-alias -p electron/tsconfig.json"
   },
   "eslintConfig": {
     "extends": [
@@ -65,6 +65,7 @@
     "prettier": "^2.8.8",
     "react-app-rewired": "^2.2.1",
     "tsc": "^2.0.4",
+    "tsc-alias": "^1.8.6",
     "wait-on": "^7.0.1"
   }
 }
